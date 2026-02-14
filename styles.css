@@ -156,17 +156,27 @@ body {
 .no {
 	background: var(--no);
 	box-shadow: 0 6px 0 var(--no-shadow);
+	transition: transform 0.22s ease;
+	will-change: transform;
 }
 
-.no.mischief {
-	position: fixed;
-	margin: 0;
-	z-index: 40;
-	transition:
-		left 1.9s ease-out,
-		top 1.9s ease-out,
-		transform 0.45s ease;
-	will-change: left, top, transform;
+.no.nudging {
+	animation: noNudge 240ms ease-out;
+}
+
+@keyframes noNudge {
+	0% {
+		transform: translateX(0);
+	}
+	45% {
+		transform: translateX(10px);
+	}
+	75% {
+		transform: translateX(-4px);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
 
 .start-button {
